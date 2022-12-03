@@ -2,7 +2,7 @@ module Main where
 
 import Data.Char (ord)
 import Data.List (sortBy)
-import Utils (splitOn, rmdups, compareSnd)
+import Utils (rmdups, compareSnd)
 
 getCharPriority :: Maybe Char -> Int
 getCharPriority Nothing = 0
@@ -42,5 +42,5 @@ main = putStrLn
   . sum
   . map getCharPriority
   . map (\x -> Just x)
-  . solve
-  . splitOn 0 "\n" =<< readFile "input.txt"
+  . words
+  . lines =<< readFile "input.txt"

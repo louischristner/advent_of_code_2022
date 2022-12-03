@@ -1,6 +1,6 @@
 module Main where
 
-import Utils (splitOn, rmdups, getdup)
+import Utils (rmdups, getdup)
 import Data.Char (ord)
 
 import Data.List (sortBy)
@@ -29,4 +29,4 @@ solve :: [String] -> Int
 solve = sum . map getCharPriority . map getdup . map (\(x, y) -> x ++ y) . map (\(x, y) -> (rmdups x, rmdups y)) . map getRucksackFromString
 
 main :: IO ()
-main = putStrLn . (++) "Sum of priorities: " . show . solve . splitOn 0 "\n" =<< readFile "input.txt"
+main = putStrLn . (++) "Sum of priorities: " . show . solve . words =<< readFile "input.txt"

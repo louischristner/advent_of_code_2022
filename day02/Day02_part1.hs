@@ -2,20 +2,6 @@ module Main where
 
 data Move = Rock | Paper | Scissors deriving (Eq)
 
--- utils
-
-splitOn :: Int -> String -> String -> [String]
-splitOn idx _ input | idx == length input = [input]
-splitOn idx del input =
-  if key == del then
-    [prevKey] ++ (splitOn 0 del $ drop (idx + delLen) input)
-  else
-    splitOn (idx + 1) del input
-  where
-    delLen = length del
-    key = take delLen $ drop idx input
-    prevKey = take idx input
-
 -- main
 
 getMoveScore :: Maybe Move -> Int
@@ -59,4 +45,4 @@ solve :: [String] -> Int
 solve = sum . map getMatchScore . map words
 
 main :: IO ()
-main = putStrLn . (++) "Total Score: " . show . solve . splitOn 0 "\n" =<< readFile "input.txt"
+main = putStrLn . (++) "Total Score: " . show . solve . lines =<< readFile "input.txt"
