@@ -1,8 +1,17 @@
-NAME	=	solver
+NAME1	=	solver1
+NAME2 = solver2
 
-SRC		=	Day02.hs
+SRC1	=	Day02_part1.hs
+SRC2	=	Day02_part2.hs
 
-all: $(NAME)
+all: part1 part2
 
-$(NAME): $(SRC)
-	ghc -o $(NAME) $(SRC)
+part1: $(NAME1)
+
+part2: $(NAME2)
+
+$(NAME1): $(SRC1)
+	ghc -o $(NAME1) $(SRC1)
+
+$(NAME2): $(SRC2)
+	ghc -o $(NAME2) $(SRC2)
