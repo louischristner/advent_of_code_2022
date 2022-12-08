@@ -6,3 +6,5 @@
 - Day 4 : Haskell
 - Day 5 : Haskell
 - Day 6 : Haskell
+- Day 7 : ?
+- Day 8 : C++
